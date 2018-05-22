@@ -9,10 +9,10 @@ public class MySQL {
     private String DB_URL;
     private String user;
     private String password;
-    private Connection connection;
 
     //建立联系
-    public void getConnection(String DB_URL, String user, String password) throws ClassNotFoundException {
+    public Connection getConnection(String DB_URL, String user, String password) throws ClassNotFoundException {
+        Connection connection = null;
 
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Linking the MysqlDB");
@@ -21,6 +21,7 @@ public class MySQL {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return connection;
     }
 
     //最后关闭清理打开端口
@@ -47,9 +48,5 @@ public class MySQL {
             e.printStackTrace();
         }
 
-    }
-
-    public Connection getConnection() {
-        return connection;
     }
 }

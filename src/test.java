@@ -5,14 +5,14 @@ public class test {
     public static void main(String[] args){
 
         MySQL mySQL = new MySQL();
-        Connection conn = mySQL.getConnection();
-        Statement statement;
-        ResultSet rs;
+        Connection conn = null;
         try {
-            mySQL.getConnection("jdbc:mysql://localhost:3306/xs","root","miller0924");
+            conn = mySQL.getConnection("jdbc:mysql://localhost:3306/xs","root","miller0924");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        Statement statement;
+        ResultSet rs;
 
         String sql  = "select * from xs";
         try {
